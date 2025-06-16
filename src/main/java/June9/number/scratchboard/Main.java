@@ -7,5 +7,6 @@ public class Main {
         int number = numberscratchboard.getNumber();
         int factorial = numberscratchboard.factorial(number);
         System.out.println("The factorial of the entered number is : " + factorial);
+        System.out.println("Dhairya is testing github code");
     }
 }
