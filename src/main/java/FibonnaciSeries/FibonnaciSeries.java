@@ -15,7 +15,11 @@ public class FibonnaciSeries {
 
     public void printSeries(){
         for (int index = 1; index <= terms; index++){
-            System.out.print(firstTerm + ", ");
+            if (index == terms){
+                System.out.println(firstTerm);
+            } else {
+                System.out.print(firstTerm + ", ");
+            }
 
             int nextTerm = firstTerm + secondTerm;
             firstTerm = secondTerm;
