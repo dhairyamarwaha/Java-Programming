@@ -3,17 +3,12 @@ package FibonnaciSeries;
 import java.util.Scanner;
 
 public class FibonnaciSeries {
-    Scanner sc = new Scanner(System.in);
-    int terms;
     int firstTerm = 0;
     int secondTerm = 1;
 
-    public void getTerms(){
-        System.out.print("Please enter the number of terms you wish to go till : ");
-        terms = sc.nextInt();
-    }
 
-    public void printSeries(){
+
+    public void printSeries(int terms){
         for (int index = 1; index <= terms; index++){
             if (index == terms){
                 System.out.println(firstTerm);
