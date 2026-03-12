@@ -12,9 +12,10 @@ public class OOPS {
             System.out.println("2. Search Book");
             System.out.println("3. Update price");
             System.out.println("4. Display all details");
+            System.out.println("Enter any number to exit");
 
             Scanner sc = new Scanner(System.in);
-            System.out.print("Enter your choice : ");
+            System.out.print("\nEnter your choice : ");
             int choice = sc.nextInt();
 
             switch (choice){
@@ -40,7 +41,7 @@ public class OOPS {
                     break;
                 case 3:
                     sc.nextLine();
-                    System.out.println("Enter the title of the book : ");
+                    System.out.print("Enter the title of the book : ");
                     String bookTitle = sc.nextLine();
                     System.out.print("Enter the new price of the book : ");
                     double newPrice = sc.nextDouble();
@@ -100,16 +101,20 @@ class Library {
     }
 
     void searchBook(String title) {
+        boolean foundBook = false;
         for (int i = 0; i < bookCount; i++) {
             if (title.equalsIgnoreCase(books[i].booktitle)) {
+                foundBook = true;
                 System.out.println("\nBook found");
                 System.out.println("Book title : " + title);
                 System.out.println("Book Author : " + books[i].author);
                 System.out.println("Book price : " + books[i].price);
+                System.out.println("");
                 break;
-            } else {
-                System.out.println("Book not found");
             }
+        }
+        if(!foundBook){
+            System.out.println("Book not found");
         }
     }
     void displayAllBooks(){
@@ -121,12 +126,17 @@ class Library {
         }
     }
     void updatePrice(String title, double newPrice){
+        boolean foundBook = false;
         for (int i = 0; i < bookCount; i++) {
             if(title.equalsIgnoreCase(books[i].booktitle)){
+                foundBook = true;
                 books[i].updatePrice(newPrice);
-                System.out.println("\nPrice updated successfully\n");
             }
         }
-        System.out.println("Book not found");
+        if(foundBook){
+            System.out.println("Price updated successfully\n");
+        }else{
+            System.out.println("Book not found");
+        }
     }
 }
